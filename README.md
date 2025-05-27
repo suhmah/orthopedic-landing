@@ -1,55 +1,87 @@
-# React + TypeScript + Vite
+# 🦴 Orthopedic Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web responsiva desenvolvida com **React + Vite** para apresentação de produtos ortopédicos, com foco em usabilidade, desempenho e escalabilidade.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- ✅ Listagem de produtos com destaque para lançamentos
+- ✅ Filtro lateral com categorias personalizáveis
+- ✅ Página de **detalhes do produto** com:
+  - Carrossel de imagens
+  - Informações técnicas (nível, tamanhos, modelo)
+  - Link para folder em PDF
+  - Vídeo promocional integrado (YouTube embed)
+- ✅ Componente de **breadcrumb dinâmico**
+- ✅ Componente de **busca expansível**
+- ✅ Seção de produtos relacionados
+- ✅ Design adaptado para dispositivos móveis (`< 800px`)
+- ✅ Componentização baseada em **Atomic Design**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🧱 Arquitetura
+
+- **Modular por feature (Domain-Driven Design)**
+- **Atomic Design** para camada de UI
+- **Redux Toolkit** para gerenciamento de estado
+- Estrutura separada em:
+  - `features/orthopedic/` — lógica por domínio
+  - `shared/ui/` — componentes reutilizáveis (Text, Button, Tag, Row, Margin, etc.)
+
+---
+
+## 🧰 Tecnologias
+
+| Tecnologia       | Finalidade                                   |
+|------------------|----------------------------------------------|
+| **React + Vite** | Front-end rápido e moderno                   |
+| **Styled Components** | Estilização com escopo local e temas        |
+| **TypeScript**   | Tipagem estática e segurança de código       |
+| **Redux Toolkit**| Gerenciamento global de estado               |
+| **React Router** | Controle de rotas e navegação                |
+| **React Icons**  | Ícones modernos e acessíveis                 |
+| **Vercel**       | Hospedagem da aplicação                      |
+
+---
+
+## 📱 Responsividade
+
+Toda a interface foi adaptada para **mobile-first**, com:
+- Comportamento de colunas empilhadas abaixo de 800px
+- Imagens fluidas com `aspect-ratio`
+- Menu adaptável e componentes reativos
+- Carrosséis horizontais com navegação por seta
+
+---
+
+## 📂 Estrutura de pastas (resumida)
+
+src/
+├── features/
+│   └── orthopedic/
+│       ├── presentation/       # Componentes visuais (screens, componentes, estilos)
+│       ├── application/        # Casos de uso e lógica de negócio
+│       ├── store/              # Slice e integração com Redux
+│       └── shared/             # Tipagens, mocks, entidades
+├── shared/
+│   └── ui/
+│       ├── atoms/              # Botões, textos, espaçamentos, tags, ícones
+│       ├── molecules/          # Breadcrumb, busca, carrossel etc.
+├── app/
+│   └── store.ts                # Configuração do Redux
+└── main.tsx                    # Ponto de entrada da aplicação
+## 🟢 Como rodar localmente
+
+```bash
+# Instale as dependências
+yarn install
+
+# Rode a aplicação localmente
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# orthopedic-landing
+> 💡 Requisitos:
+> - Node.js **versão 18 ou superior**
+> - Yarn instalado globalmente (`npm install -g yarn`)
