@@ -1,21 +1,26 @@
 import { Link, useLocation } from 'react-router-dom';
 import { BreadcrumbWrapper, Crumb, Separator } from './styles';
+
 interface BreadcrumbProps {
   current?: string;
 }
-interface BreadcrumbProps {
-  current?: string;
-}
+
+type CrumbItem = {
+  label: string;
+  path?: string;
+};
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ current }) => {
   const location = useLocation();
 
-  const baseCrumbs = [
+  const baseCrumbs: CrumbItem[] = [
     { label: 'Início', path: '/' },
-    { label: 'Linha Orthopedic', path: location },
+    { label: 'Linha Orthopedic', path: location.pathname },
   ];
 
-  const crumbs = current ? [...baseCrumbs, { label: current }] : baseCrumbs;
+  const crumbs: CrumbItem[] = current
+    ? [...baseCrumbs, { label: current }]
+    : baseCrumbs;
 
   return (
     <BreadcrumbWrapper>
@@ -25,7 +30,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ current }) => {
         return (
           <span key={crumb.label}>
             {index !== 0 && <Separator>{'>'}</Separator>}
-            {crumb.path && !isLast ? (
+            {!isLast && crumb.path ? (
               <Crumb as={Link} to={crumb.path}>
                 {crumb.label}
               </Crumb>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Text } from '../../../../../shared/ui/atoms/text/inde';
-import { SearchIcon } from '../../../../../shared/ui/atoms/SearchIcon';
 import { Button } from '../../../../../shared/ui/atoms/Button/inde';
 import { Row } from '../../../../../shared/ui/atoms/Row';
 import { Margin } from '../../../../../shared/ui/atoms/Margin';

@@ -13,7 +13,7 @@ const THUMB_WIDTH = 60 + 8; // width + gap
 export const Carousel: React.FC<CarouselProps> = ({ images, selectedIndex, onSelect }) => {
   const [scrollIndex, setScrollIndex] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
-  const [visibleCount, setVisibleCount] = useState(4);
+ const visibleCount = 4
 
   const maxScroll = Math.max(0, images.length - visibleCount);
 

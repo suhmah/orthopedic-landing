@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Product } from '../domain/entities/product';
+import type { Product } from '../../orthopedic/share/entities/product';
 
 interface ProductDetailsState {
   currentProduct: Product | null;
